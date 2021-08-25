@@ -12,7 +12,6 @@
   align-self: center;
   margin: 0;
   padding: 7px 7px;
-  box-sizing: border-box;
 }
 
 .profile__edit-button:hover {
