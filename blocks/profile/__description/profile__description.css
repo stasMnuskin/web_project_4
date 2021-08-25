@@ -1,0 +1,29 @@
+.profile__description {
+  width: 47.16%;
+  font-family: 'Inter', sans-serif;
+  margin: 22px 165px 21px 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+@media screen and (max-width: 980px) {
+  .profile__description {
+    margin: 22px 80px 21px 30px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .profile__description {
+    width: 60%;
+    margin: 22px auto;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .profile__description {
+    width: 100%;
+    margin: 26.25px auto 36px;
+  }
+}

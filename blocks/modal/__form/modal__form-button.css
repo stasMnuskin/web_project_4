@@ -1,0 +1,29 @@
+.modal__form-button {
+  margin-top: 48px;
+  padding: 3.82% 34.65% 5.17% 34.92%;
+  width: 100%;
+  max-width: 358px;
+  background: #000000;
+  border-radius: 2px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.modal__form-button:hover {
+  opacity: .8;
+  transition: ease .5s;
+}
+
+@media screen and (max-width: 540px) {
+  .modal__form-button {
+    font-size: 14px;
+    padding: 14px 100px;
+  }
+}

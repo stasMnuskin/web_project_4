@@ -9,7 +9,106 @@
 </head>
 <body class="page">
   <div class="page__wrapper">
-    
+    <header class="header">
+      <img src="./blocks/images/heade-logo.svg" alt="header logo" class="header__logo">
+    </header>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__image"></div>
+        <div class="profile__description">
+          <h1 class="profile__name">Jacques Cousteau</h1>
+          <button type="submit" class="profile__edit-button">      
+          </button>
+          <p class="profile__job">Explorer</p>
+        </div>
+        <button type="submit" class="profile__add-button">
+        </button>  
+      </section>
+      <section class="elements">
+        <ul class="elements__list">
+          <li class="elements__card">
+            <img src="./blocks/images/yosemitey.png" alt="yosemite" class="elements__card-image">
+            <div class="elements__card-info">
+              <h2 class="elements__card-title">
+                Yosemite Valley
+              </h2>
+              <button type="submit" class="elements__card-button"></button>
+            </div>   
+          </li>
+          <li class="elements__card">
+            <img src="./blocks/images/lake-louise.png" alt="lake-louis" class="elements__card-image">
+            <div class="elements__card-info">
+              <h2 class="elements__card-title">
+                Lake Louise
+              </h2>
+              <button type="submit" class="elements__card-button"></button>
+            </div>   
+          </li>
+          <li class="elements__card">
+            <img src="./blocks/images/bald-mountains.png" alt="bald-mountains" class="elements__card-image">
+            <div class="elements__card-info">
+              <h2 class="elements__card-title">
+                Bald mountains
+              </h2>
+              <button type="submit" class="elements__card-button"></button>
+            </div>   
+          </li>
+          <li class="elements__card">
+            <img src="./blocks/images/latemar.png" alt="latemar" class="elements__card-image">
+            <div class="elements__card-info">
+              <h2 class="elements__card-title">
+                Latemar
+              </h2>
+              <button type="submit" class="elements__card-button"></button>
+            </div>   
+          </li>
+          <li class="elements__card">
+            <img src="./blocks/images/vanoise-national.png" alt="vanoise-national" class="elements__card-image">
+            <div class="elements__card-info">
+              <h2 class="elements__card-title">
+                Vanoise Nationa...
+              </h2>
+              <button type="submit" class="elements__card-button"></button>
+            </div>   
+          </li>
+          <div class="elements__card">
+            <img src="./blocks/images/lago.png"
+            alt="lago" class="elements__card-image">
+            <div class="elements__card-info">
+              <h2 class="elements__card-title">
+                Lago di Braies
+              </h2>
+              <button type="submit" class="elements__card-button"></button>
+            </div>   
+          </li>
+        </ul>  
+      </section>
+    </main>
+    <footer class="footer">
+      <span class="footer__copyrights">
+        &#169; 2021 Around The U.S
+      </span>
+    </footer>
+    <div class="modal">
+      <div class="modal__container">
+        <div class="modal__close-button"></div>
+        <form action="#" class="modal__form">
+          <h3 class="modal__title">Edit profile</h3>
+          <input type="text"
+          class="modal__form-input modal__form-input_name"
+          placeholder="Jacques" 
+          value="full-name"/>
+          <input type="text"
+          class="modal__form-input modal__form-input_job" 
+          placeholder="Cousteau" 
+          value="job"/>
+          <button type='submit' class="modal__form-button">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
+  <script src="index.js"></script>
 </body>
 </html>

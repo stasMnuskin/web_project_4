@@ -2,15 +2,28 @@
 
 ### Overview
 
-* Figma
-* Images
+* header
+* main
+* footer
+* popup modal
 
+**Intro**
+
+This project is the first out of three and about implementing basic JS. I've made it so all the elements are displayed correctly on popular screen sizes. 
 **Figma**
 
-* [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
+* [Link to the project on Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4%3A-Around-The-U.S.-%7C-desktop-%2B-mobile?node-id=1%3A327)
 
-**Images**
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+"Around The U.S" is a my fourth independent project in the Practicum100 program. This is a one web page made only with html, css and some basic JavaScript.
+It has 4 unique sections!
+more to that, it is well structured according to BEM principles. 
 
-Have fun with JavaScript!
+## Github link:
+https://stasmnuskin.github.io/web_project_3/
+## Installation
+You don`t need to install this project.
+
+## License
+Stas Mnuskin.
+
