@@ -20,7 +20,7 @@ It has 4 unique sections!
 more to that, it is well structured according to BEM principles. 
 
 ## Github link:
-https://stasmnuskin.github.io/web_project_3/
+https://stasmnuskin.github.io/web_project_4/
 ## Installation
 You don`t need to install this project.
 
