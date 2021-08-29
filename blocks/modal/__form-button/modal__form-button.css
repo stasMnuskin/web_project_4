@@ -21,7 +21,7 @@
   transition: ease .5s;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 670px) {
   .modal__form-button {
     font-size: 14px;
     padding: 14px 100px;

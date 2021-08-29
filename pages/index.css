@@ -26,5 +26,5 @@
 @import url(../blocks/modal/__title/modal__title.css);
 @import url(../blocks/modal/__close-button/modal__close-button.css);
 @import url(../blocks/modal/__form/modal__form.css);
-@import url(../blocks/modal/__form/modal__form-input.css);
-@import url(../blocks/modal/__form/modal__form-button.css);
+@import url(../blocks/modal/__form-button/modal__form-button.css);
+@import url(../blocks/modal/__form-input/modal__form-input.css);

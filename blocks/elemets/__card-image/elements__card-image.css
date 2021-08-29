@@ -3,19 +3,7 @@
   height: 282px;
 }
 
-@media screen and (max-width: 980px) {
-  .elements__card-image {
-    height: 340px;
-  }
-}
-
-@media screen and (max-width: 760px) {
-  .elements__card-image {
-    height: 500px;
-  }
-}
-
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 670px) {
   .elements__card-image {
     height: 282px;
   }

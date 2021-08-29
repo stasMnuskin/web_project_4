@@ -1,29 +1,31 @@
 .profile__description {
   width: 47.16%;
   font-family: 'Inter', sans-serif;
-  margin: 22px 165px 21px 0;
+  margin: 22px auto 21px 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 960px) {
   .profile__description {
-    margin: 22px 80px 21px 30px;
+    width: 49.16%;
+    margin: 22px auto 21px 0;
   }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 800px) {
   .profile__description {
-    width: 60%;
+    width: 55%;
     margin: 22px auto;
   }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 670px) {
   .profile__description {
     width: 100%;
     margin: 26.25px auto 36px;
+    justify-content: center;
   }
 }

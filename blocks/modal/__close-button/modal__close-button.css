@@ -18,7 +18,7 @@
   transition: ease .5s;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 670px) {
   .modal__close-button {
     width: 26px;
     height: 26px;

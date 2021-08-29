@@ -1,4 +1,5 @@
 .elements__list {
+  list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
@@ -7,16 +8,16 @@
   gap: 20px 17px;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 960px) {
   .elements__list {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 40px 20px;
   }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 670px) {
   .elements__list {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 1fr);
+    display: block;
   }
 }

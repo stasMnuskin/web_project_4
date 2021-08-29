@@ -9,7 +9,7 @@
   color: #000000;
 }
 
-@media screen and(max-width: 540px) {
+@media screen and(max-width: 670px) {
   .modal__title {
     font-size: 18px;
     margin-bottom: 76px;

@@ -5,19 +5,20 @@
   min-width: 320px;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 960px) {
   .page__wrapper  {
-    max-width: 700px;
+    max-width: 88.5%;
   }
 }
 
-@media screen and (max-width: 760px) {
+
+@media screen and (max-width: 800px) {
   .page__wrapper  {
-    max-width: 500px;
+    max-width: 86.5%;
   }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 670px) {
   .page__wrapper  {
     max-width: 320px;
   }

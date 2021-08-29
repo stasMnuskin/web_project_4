@@ -17,17 +17,17 @@
   transition: ease .5s;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 800px) {
   .profile__add-button {
-    width: 50%;
+    width: 15%;
     min-height: 50px;
-    margin: 0 auto;
+    /* margin: auto; */
   }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 670px) {
   .profile__add-button {
     width: 100%;
-    margin-bottom: 36px;
+    margin: 0 auto;
   }
 }
