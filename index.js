@@ -3,8 +3,8 @@ let modal = document.querySelector('.modal');
 let closeModal = document.querySelector('.modal__close-button');
 let form = document.querySelector('.modal__form');
 let nameInput = document.querySelector
-('.modal__form-input_name');
-let jobInput = document.querySelector('.modal__form-input_job');
+('.modal__form-input_mod_name');
+let jobInput = document.querySelector('.modal__form-input_mod_job');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
 
@@ -21,10 +21,6 @@ function openingModal() {
   jobInput.value = userJob;
 };
 
-openModal.addEventListener('click', openingModal);
-
-closeModal.addEventListener('click', closingModal)
-  
 form.addEventListener('submit', function(e){
   e.preventDefault();
   let nameValue = nameInput.value;
@@ -34,3 +30,5 @@ form.addEventListener('submit', function(e){
   profileJob.textContent = jobValue;
   closingModal();
 });
+openModal.addEventListener('click', openingModal);
+closeModal.addEventListener('click', closingModal)

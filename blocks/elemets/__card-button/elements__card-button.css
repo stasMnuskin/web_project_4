@@ -12,7 +12,7 @@
 }
 
 .elements__card-button:hover {
-  opacity: .6;
+  opacity: .5;
   transition: ease .5s;
 }
 

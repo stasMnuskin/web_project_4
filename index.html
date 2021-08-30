@@ -17,11 +17,11 @@
         <div class="profile__image"></div>
         <div class="profile__description">
           <h1 class="profile__name">Jacques Cousteau</h1>
-          <button type="submit" class="profile__edit-button">      
+          <button aria-label="like" type="button" class="profile__edit-button">      
           </button>
           <p class="profile__job">Explorer</p>
         </div>
-        <button type="submit" class="profile__add-button">
+        <button aria-label="like" type="button" class="profile__add-button">
         </button>  
       </section>
       <section class="elements">
@@ -32,7 +32,7 @@
               <h2 class="elements__card-title">
                 Yosemite Valley
               </h2>
-              <button type="submit" class="elements__card-button"></button>
+              <button aria-label="like" type="button" class="elements__card-button"></button>
             </div>   
           </li>
           <li class="elements__card">
@@ -41,7 +41,7 @@
               <h2 class="elements__card-title">
                 Lake Louise
               </h2>
-              <button type="submit" class="elements__card-button"></button>
+              <button aria-label="like" type="button" class="elements__card-button"></button>
             </div>   
           </li>
           <li class="elements__card">
@@ -50,7 +50,7 @@
               <h2 class="elements__card-title">
                 Bald mountains
               </h2>
-              <button type="submit" class="elements__card-button"></button>
+              <button aria-label="like" type="button" class="elements__card-button"></button>
             </div>   
           </li>
           <li class="elements__card">
@@ -59,7 +59,7 @@
               <h2 class="elements__card-title">
                 Latemar
               </h2>
-              <button type="submit" class="elements__card-button"></button>
+              <button aria-label="like" type="button" class="elements__card-button"></button>
             </div>   
           </li>
           <li class="elements__card">
@@ -68,7 +68,7 @@
               <h2 class="elements__card-title">
                 Vanoise National
               </h2>
-              <button type="submit" class="elements__card-button"></button>
+              <button aria-label="like" type="button" class="elements__card-button"></button>
             </div>   
           </li>
           <li class="elements__card">
@@ -78,28 +78,29 @@
               <h2 class="elements__card-title">
                 Lago di Braies
               </h2>
-              <button type="submit" class="elements__card-button"></button>
+              <button aria-label="like" type="button" class="elements__card-button"></button>
             </div>   
           </li>
         </ul>  
       </section>
     </main>
     <footer class="footer">
-      <span class="footer__copyrights">
+      <p class="footer__copyrights">
         &#169; 2021 Around The U.S
-      </span>
+      </p>
     </footer>
     <div class="modal">
       <div class="modal__container">
-        <div class="modal__close-button"></div>
-        <form action="#" class="modal__form">
-          <h3 class="modal__title">Edit profile</h3>
-          <input type="text"
-          class="modal__form-input modal__form-input_name"
+        <button aria-label="close" type="button" class="modal__close-button">
+        </button>
+        <form name="form" action="#" class="modal__form">
+          <h2 class="modal__title">Edit profile</h2>
+          <input name="input_name" type="text"
+          class="modal__form-input modal__form-input_mod_name"
           placeholder="Jacques" 
           value="full-name"/>
-          <input type="text"
-          class="modal__form-input modal__form-input_job" 
+          <input name="input_job" type="text"
+          class="modal__form-input modal__form-input_mod_job" 
           placeholder="Cousteau" 
           value="job"/>
           <button type='submit' class="modal__form-button">
