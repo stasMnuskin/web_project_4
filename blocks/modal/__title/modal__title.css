@@ -12,6 +12,7 @@
 @media screen and (max-width: 670px) {
   .modal__title {
     font-size: 18px;
+    line-height: 22px;
     margin: 0 0 76px;
   }
 }
