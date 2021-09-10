@@ -15,8 +15,3 @@
   opacity: .5;
   transition: ease .5s;
 }
-
-.elements__card-button:active {
-  background-image: url(../../images/black-heart.svg);
-  transition: ease .5s;
-}

@@ -1,0 +1,6 @@
+.modal__container_type_image {
+  max-width: 75vw;
+  width: fit-content;
+  height: 75vh;
+  object-fit: cover;
+}

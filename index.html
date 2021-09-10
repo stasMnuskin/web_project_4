@@ -25,63 +25,7 @@
         </button>  
       </section>
       <section class="elements">
-        <ul class="elements__list">
-          <li class="elements__card">
-            <img src="./blocks/images/yosemitey.png" alt="yosemite" class="elements__card-image">
-            <div class="elements__card-info">
-              <h2 class="elements__card-title">
-                Yosemite Valley
-              </h2>
-              <button aria-label="like" type="button" class="elements__card-button"></button>
-            </div>   
-          </li>
-          <li class="elements__card">
-            <img src="./blocks/images/lake-louise.png" alt="lake-louis" class="elements__card-image">
-            <div class="elements__card-info">
-              <h2 class="elements__card-title">
-                Lake Louise
-              </h2>
-              <button aria-label="like" type="button" class="elements__card-button"></button>
-            </div>   
-          </li>
-          <li class="elements__card">
-            <img src="./blocks/images/bald-mountains.png" alt="bald-mountains" class="elements__card-image">
-            <div class="elements__card-info">
-              <h2 class="elements__card-title">
-                Bald mountains
-              </h2>
-              <button aria-label="like" type="button" class="elements__card-button"></button>
-            </div>   
-          </li>
-          <li class="elements__card">
-            <img src="./blocks/images/latemar.png" alt="latemar" class="elements__card-image">
-            <div class="elements__card-info">
-              <h2 class="elements__card-title">
-                Latemar
-              </h2>
-              <button aria-label="like" type="button" class="elements__card-button"></button>
-            </div>   
-          </li>
-          <li class="elements__card">
-            <img src="./blocks/images/vanoise-national.png" alt="vanoise-national" class="elements__card-image">
-            <div class="elements__card-info">
-              <h2 class="elements__card-title">
-                Vanoise National
-              </h2>
-              <button aria-label="like" type="button" class="elements__card-button"></button>
-            </div>   
-          </li>
-          <li class="elements__card">
-            <img src="./blocks/images/lago.png"
-            alt="lago" class="elements__card-image">
-            <div class="elements__card-info">
-              <h2 class="elements__card-title">
-                Lago di Braies
-              </h2>
-              <button aria-label="like" type="button" class="elements__card-button"></button>
-            </div>   
-          </li>
-        </ul>  
+        <ul class="elements__list"></ul>  
       </section>
     </main>
     <footer class="footer">
@@ -89,16 +33,16 @@
         &#169; 2021 Around The U.S
       </p>
     </footer>
-    <div class="modal">
+    <div class="modal modal_type_edit">
       <div class="modal__container">
         <button aria-label="close" type="button" class="modal__close-button">
         </button>
-        <form name="form" action="#" class="modal__form">
+        <form name="edit-form" action="#" class="modal__form">
           <h2 class="modal__title">Edit profile</h2>
           <input name="input_name" type="text"
           class="modal__form-input modal__form-input_mod_name"
           placeholder="Jacques" 
-          value="full-name"/>
+          value="Jacques"/>
           <input name="input_job" type="text"
           class="modal__form-input modal__form-input_mod_job" 
           placeholder="Cousteau" 
@@ -109,7 +53,47 @@
         </form>
       </div>
     </div>
+    <div class="modal modal_type_add">
+      <div class="modal__container">
+        <button aria-label="close" type="button" class="modal__close-button">
+        </button>
+        <form name="add-form" action="#" class="modal__form">
+          <h2 class="modal__title">New Place</h2>
+          <input name="input_title" type="text"
+          class="modal__form-input modal__form-input_mod_title"
+          placeholder="Title" 
+          value="Title"/>
+          <input name="input_url" type="text"
+          class="modal__form-input modal__form-input_mod_image" 
+          placeholder="Image link" 
+          value="Image link"/>
+          <button type='submit' class="modal__form-button">
+            Create
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="modal modal_type_image">
+      <div class="modal__container modal__container_type_image">
+        <button aria-label="close" type="button" class="modal__close-button">
+        </button>
+        <figure class="modal__figure">
+          <img class="modal__image" src="#" alt="#">
+          <figcaption class="modal__caption"></figcaption>
+        </figure>
+      </div>
+    </div>
   </div>
+  <template class="card-template">
+    <li class="elements__card">
+      <button aria-label="delete" type="button" class="elements__card-delete"></button>
+      <img src="" alt="" class="elements__card-image">
+      <div class="elements__card-info">
+        <h2 class="elements__card-title"></h2>
+        <button aria-label="like" type="button" class="elements__card-button"></button>
+      </div>   
+    </li>
+  </template>
   <script src="index.js"></script>
 </body>
 </html>
