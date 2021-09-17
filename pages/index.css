@@ -34,3 +34,6 @@
 @import url(../blocks/modal/__figure/modal__figure.css);
 @import url(../blocks/modal/__image/modal__image.css);
 @import url(../blocks/modal/__caption/modal__caption.css);
+@import url(../blocks/modal/__form-input/_theme/_error/modal__form-input_theme_error.css);
+@import url(../blocks/modal/__form-button/_disabled/modal__form-button_disabled.css);
+@import url(../blocks/modal/__input-error/modal__input-error.css);

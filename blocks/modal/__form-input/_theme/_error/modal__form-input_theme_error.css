@@ -1,0 +1,5 @@
+.modal__form-input_theme_error {
+  color:  #C4C4C4;
+  border-bottom: 1px solid #FF0000;
+  margin-bottom: 5px;
+}

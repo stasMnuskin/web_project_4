@@ -1,0 +1,14 @@
+.modal__input-error {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  margin-bottom: 13px;
+}
+
+.modal__input-error:last-of-type {
+  margin-bottom: 0;
+  margin-top: 5px;
+}

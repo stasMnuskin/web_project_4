@@ -1,0 +1,9 @@
+.modal__form-button_disabled {
+  color: rgba(0, 0, 0, 0.2);
+  background-color: white;
+  cursor: default;
+}
+
+.modal__form-button:hover {
+  opacity: 1;
+}

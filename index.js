@@ -11,10 +11,12 @@ const openingAddModal = document.querySelector('.profile__add-button');
 const imageFromModal = imageModal.querySelector('.modal__image');
 const captionFromModal = imageModal.querySelector('.modal__caption');
 
-//function for toggling open or closed modal
+//function for opening a modal
 function openPopup(popup) {
   popup.classList.add('modal_open');
-}
+  document.addEventListener('mousedown', closeWithClick);
+  document.addEventListener('keydown', closeWithEsc);
+};
 
 //open the image modal
 function openImageModal(evt) {
@@ -28,6 +30,7 @@ function openImageModal(evt) {
 };
 //open the edit modal
 function openEditModal() {
+  editForm.reset();
   const userName = profileName.textContent;
   const userJob = profileJob.textContent;
   openPopup(editModal);
@@ -36,9 +39,13 @@ function openEditModal() {
 };
 openingEditModal.addEventListener('click', openEditModal);
 //open the add card modal
-function openAddModal() {
-  openPopup(addModal);
+function openAddModal(evt) {
+  evt.preventDefault();
+  const saveAddButton = addForm.querySelector('.modal__form-button');
+  saveAddButton.disabled = true;
+  saveAddButton.classList.add('modal__form-button_disabled');
   addForm.reset();
+  openPopup(addModal);
 };
 openingAddModal.addEventListener('click', openAddModal);
 
@@ -49,7 +56,23 @@ const closingImageModal = imageModal.querySelector('.modal__close-button');
 
 function closePopup(popup) {
   popup.classList.remove('modal_open');
+  document.removeEventListener('mousedown', closeWithClick);
+  document.removeEventListener('keydown', closeWithEsc);
 };
+function closeWithClick (evt) {
+  if (evt.target.classList.contains('modal_open')) {
+    const modal = document.querySelector('.modal_open');
+    closePopup(modal);
+  };
+};
+
+function closeWithEsc (evt) {
+  if (evt.key === 'Escape') {
+    const modal = document.querySelector('.modal_open');
+    closePopup(modal);
+  };
+};
+
 
 //close the edit modal
 function closeEditModal() {
