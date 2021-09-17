@@ -10,6 +10,10 @@
 **features**
 *close any form with Escape button or by clicking outside of the form.
 *manual form validation with JS.
+*adding new cards (title + url needed).
+*editing profile name and job.
+*delete any card.
+*"like" any card.
 
 **Intro**
 
