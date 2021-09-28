@@ -36,9 +36,7 @@ function openAddModal(evt) {
   evt.preventDefault();
   addForm.reset();
   addCardFormValidator.resetValidation();
-  const saveAddButton = addForm.querySelector('.modal__form-button');
-  saveAddButton.disabled = true;
-  saveAddButton.classList.add('modal__form-button_disabled');
+  addCardFormValidator.resetButton();
   openPopup(addModal);
 };
 openingAddModal.addEventListener('click', openAddModal);

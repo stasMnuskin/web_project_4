@@ -49,11 +49,16 @@ class FormValidator {
     };
   };
 
-
   resetValidation() {
     this.formInputs.forEach(input => {
       this._hideError(input);
     });
+  };
+
+  resetButton() {
+    const saveButton = document.querySelector('.modal__form-button');
+    saveButton.disabled = true;
+    saveButton.classList.add('modal__form-button_disabled');
   };
 
   enableValidation() {
