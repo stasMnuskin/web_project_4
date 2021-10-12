@@ -1,14 +1,12 @@
-import { openPopup } from './utils.js';
-
 export class Card {
-  constructor(name, link, handleCardClick) {
+  constructor(name, link, selector, handleCardClick) {
     this._name = name;
     this._link = link;
+    this._selector = selector;
     this._handleCardClick = handleCardClick;
-    
   };
   _getTemplate() {
-    const cardTemplate = document.querySelector('.card-template').content.querySelector('.elements__card').cloneNode(true);
+    const cardTemplate = document.querySelector(this._selector).content.querySelector('.elements__card').cloneNode(true);
     return cardTemplate;
   };
   getCardElement = () => {

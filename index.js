@@ -50,37 +50,38 @@ const initialCards = [
 const imageModal = new PopupWithImage('.modal_type_image');
 //function that is making a card   
 function generateNewCard(data) {
-  const section = new Section({
-    data: data,
-    renderer: (data) => {
-      const card = new Card(
-        data.name,
-        data.link,
-        (evt) => {
-          evt.preventDefault();
-          const target = evt.target;
-          const link = target.src;
-          const text = target.alt;
-          imageModal.open(link, text);
-          imageModal.setEventListeners();
-        });
-        const cardElement = card.getCardElement(); 
-        section.addItem(cardElement);
-      },
-    },
-    '.elements__list'
-  );
-  section.renderer();  
-};
-generateNewCard(initialCards);
+  const card = new Card(
+    data.name,
+    data.link,
+    '.card-template',
+    (evt) => {
+      evt.preventDefault();
+      const target = evt.target;
+      const link = target.src;
+      const text = target.alt;
+      imageModal.open(link, text);
+      imageModal.setEventListeners();
+    });
+  
+  const cardElement = card.getCardElement();
 
+  return cardElement;
+};
+
+const section = new Section({
+  data: initialCards,
+  renderer: (item) => {
+    section.addItem(generateNewCard(item));
+  },
+},
+'.elements__list');
+section.renderer();
 
 //setting up profile selectors 
 const userInfo = new UserInfo({
   profileName: '.profile__name',
   profileJob: '.profile__job'
 });
-
 
 const editFormModal = new PopupWithForm('.modal_type_edit', (data) => {
   userInfo.setUserInfo(data);
@@ -91,23 +92,25 @@ const editForm = document.forms.edit;
 const nameInput = editForm.elements.input_name;
 const jobInput = editForm.elements.input_job;
 
+const editFormValidator = new FormValidator(settings, editForm);
+editFormValidator.enableValidation();
+
 openEditButton.addEventListener('click', () => {
   editFormValidator.resetValidation();
   editFormModal.open();
   const formInputs = userInfo.getUserInfo();
   nameInput.value = formInputs.userName;
   jobInput.value = formInputs.userJob;
-  console.log(jobInput.value,"jobInput.value");
-  console.log(nameInput.value,"nameInput.value");
+  // console.log(jobInput.value,"jobInput.value");
+  // console.log(nameInput.value,"nameInput.value");
 
 });
 
-const editFormValidator = new FormValidator(settings, editForm);
-editFormValidator.enableValidation();  
-// const addModal = new PopupWithForm('.modal_type_add', (data) => {
-//   makeCard(data);
-// });
-// addModal.setEventListeners();
+  
+const addModal = new PopupWithForm('.modal_type_add', (data) => {
+  section.addItem(generateNewCard(data));
+});
+addModal.setEventListeners();
  
 // addForm.addEventListener('submit', prependNewCard);
 
