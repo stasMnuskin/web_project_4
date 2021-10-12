@@ -101,14 +101,12 @@ openEditButton.addEventListener('click', () => {
   const formInputs = userInfo.getUserInfo();
   nameInput.value = formInputs.userName;
   jobInput.value = formInputs.userJob;
-  // console.log(jobInput.value,"jobInput.value");
-  // console.log(nameInput.value,"nameInput.value");
-
 });
 
 const addForm = document.forms.add;  
 const addModal = new PopupWithForm('.modal_type_add', (data) => {
   section.addItem(generateNewCard(data));
+  console.log(data);
 });
 addModal.setEventListeners();
  
