@@ -1,8 +1,16 @@
-import {FormValidator} from './FormValidator.js';
-import {imageModal, openPopup, closePopup} from './utils.js';
-import {Card} from './Card.js';
+import { FormValidator } from './FormValidator.js';
+import { Card } from './Card.js';
+import { PopupWithForm } from "./PopupWithForm.js";
+import { PopupWithImage } from './PopupWithImage.js';
+import { UserInfo } from './UserInfo.js';
+import { Section } from './Section.js';
 
+//open buttons
+const openEditButton = document.querySelector('.profile__edit-button');
+const openAddButton = document.querySelector('.profile__add-button');
+//initial settings
 const settings = {
+  formSelector: ".modal__form",
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__form-button",
   inactiveButtonClass: "modal__form-button_disabled",
@@ -10,80 +18,6 @@ const settings = {
   errorClass: "modal__error_visible"
 };
 
-//modals
-const editModal = document.querySelector('.modal_type_edit');
-const addModal = document.querySelector('.modal_type_add');
-//forms
-const editForm = editModal.querySelector('.modal__form');
-const addForm = addModal.querySelector('.modal__form');
-//opening
-const openingEditModal = document.querySelector('.profile__edit-button');
-const openingAddModal = document.querySelector('.profile__add-button');
-//open the edit modal
-function openEditModal(evt) {
-  evt.preventDefault();
-  editForm.reset();
-  editFormValidator.resetValidation();
-  const userName = profileName.textContent;
-  const userJob = profileJob.textContent;
-  openPopup(editModal);
-  nameInput.value = userName; 
-  jobInput.value = userJob;
-};
-openingEditModal.addEventListener('click', openEditModal);
-//open the add card modal
-function openAddModal(evt) {
-  evt.preventDefault();
-  addForm.reset();
-  addCardFormValidator.resetValidation();
-  addCardFormValidator.resetButton();
-  openPopup(addModal);
-};
-openingAddModal.addEventListener('click', openAddModal);
-
-//closing
-const closingEditModalButton = editModal.querySelector('.modal__close-button');
-const closingAddModalButton = addModal.querySelector('.modal__close-button');
-const closingImageModalButton = imageModal.querySelector('.modal__close-button');
-//close the edit modal
-function closeEditModal() {
-  closePopup(editModal);
-};
-closingEditModalButton.addEventListener('click', closeEditModal);
-//close the add card modal
-function closeAddModal() {
-  closePopup(addModal);
-};
-closingAddModalButton.addEventListener('click', closeAddModal);
-//closing the image modal
-function closeImageModal() {
-  closePopup(imageModal);
-};
-closingImageModalButton.addEventListener('click', closeImageModal);
-
-//profile name and profile job
-const profileName = document.querySelector('.profile__name');
-const profileJob = document.querySelector('.profile__job');
-//name and job inputs
-const nameInput = editModal.querySelector
-('.modal__form-input_mod_name');
-const jobInput = editModal.querySelector('.modal__form-input_mod_job');
-//edit form-implementing the name and job from inputs and close
-function editProfile(evt) {
-  evt.preventDefault();
-  const nameValue = nameInput.value;
-  const jobValue = jobInput.value;
-  profileName.textContent = nameValue;
-  profileJob.textContent = jobValue;
-  closePopup(editModal);
-};
-editForm.addEventListener('submit', editProfile); 
-
-//card title and card URL inputs
-const titleInput = addModal.querySelector('.modal__form-input_mod_title');
-const imageInput = addModal.querySelector('.modal__form-input_mod_image');
- 
-const cardsList = document.querySelector('.elements__list');
 //initial array of cards
 const initialCards = [
   {
@@ -112,29 +46,71 @@ const initialCards = [
   }
 ];
 
-//appending 6 initial cards
-initialCards.forEach(function(element){
-  cardsList.append(makeCard(element.name, element.link));
+//image modal
+const imageModal = new PopupWithImage('.modal_type_image');
+//function that is making a card   
+function generateNewCard(data) {
+  const section = new Section({
+    data: data,
+    renderer: (data) => {
+      const card = new Card(
+        data.name,
+        data.link,
+        (evt) => {
+          evt.preventDefault();
+          const target = evt.target;
+          const link = target.src;
+          const text = target.alt;
+          imageModal.open(link, text);
+          imageModal.setEventListeners();
+        });
+        const cardElement = card.getCardElement(); 
+        section.addItem(cardElement);
+      },
+    },
+    '.elements__list'
+  );
+  section.renderer();  
+};
+generateNewCard(initialCards);
+
+
+//setting up profile selectors 
+const userInfo = new UserInfo({
+  profileName: '.profile__name',
+  profileJob: '.profile__job'
 });
 
-//function that is making new cards
-function makeCard(imageName, imageLink) {
-  const listItem = new Card(imageName, imageLink);
-  const card = listItem.getCardElement();
-  closePopup(addModal);
-  return card;  
-};
 
-//function that adds card to the beginning
-function prependNewCard(evt) {
-  evt.preventDefault();
-  cardsList.prepend(makeCard(titleInput.value, imageInput.value));
-};
-addForm.addEventListener('submit', prependNewCard);
+const editFormModal = new PopupWithForm('.modal_type_edit', (data) => {
+  userInfo.setUserInfo(data);
+});
+editFormModal.setEventListeners();
 
-//validation of the "edit form"
+const editForm = document.forms.edit;
+const nameInput = editForm.elements.input_name;
+const jobInput = editForm.elements.input_job;
+
+openEditButton.addEventListener('click', () => {
+  editFormValidator.resetValidation();
+  editFormModal.open();
+  const formInputs = userInfo.getUserInfo();
+  nameInput.value = formInputs.userName;
+  jobInput.value = formInputs.userJob;
+  console.log(jobInput.value,"jobInput.value");
+  console.log(nameInput.value,"nameInput.value");
+
+});
+
 const editFormValidator = new FormValidator(settings, editForm);
-editFormValidator.enableValidation();
-//validation of the "add form"
-const addCardFormValidator = new FormValidator(settings, addForm);
-addCardFormValidator.enableValidation();
+editFormValidator.enableValidation();  
+// const addModal = new PopupWithForm('.modal_type_add', (data) => {
+//   makeCard(data);
+// });
+// addModal.setEventListeners();
+ 
+// addForm.addEventListener('submit', prependNewCard);
+
+// validation of the "add form"
+// const addCardFormValidator = new FormValidator(settings, addForm);
+// addCardFormValidator.enableValidation();

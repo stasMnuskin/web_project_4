@@ -1,5 +1,3 @@
-//image modal
-export const imageModal = document.querySelector('.modal_type_image');
 //function for opening a modal
 export function openPopup(popup) {
   popup.classList.add('modal_open');
@@ -17,14 +15,6 @@ export function closePopup(popup) {
 //function for closing a modal with clicking outside of it
 export function closeWithClick (evt) {
   if (evt.target.classList.contains('modal_open')) {
-    const modal = document.querySelector('.modal_open');
-    closePopup(modal);
-  };
-};
-
-//function for closing a modal with "Esc" key
-export function closeWithEsc (evt) {
-  if (evt.key === 'Escape') {
     const modal = document.querySelector('.modal_open');
     closePopup(modal);
   };
