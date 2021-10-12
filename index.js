@@ -106,14 +106,17 @@ openEditButton.addEventListener('click', () => {
 
 });
 
-  
+const addForm = document.forms.add;  
 const addModal = new PopupWithForm('.modal_type_add', (data) => {
   section.addItem(generateNewCard(data));
 });
 addModal.setEventListeners();
  
-// addForm.addEventListener('submit', prependNewCard);
+openAddButton.addEventListener('click', () =>{
+  addCardFormValidator.resetValidation();
+  addModal.open();
+});
 
 // validation of the "add form"
-// const addCardFormValidator = new FormValidator(settings, addForm);
-// addCardFormValidator.enableValidation();
+const addCardFormValidator = new FormValidator(settings, addForm);
+addCardFormValidator.enableValidation();
