@@ -9,8 +9,7 @@ export class UserInfo {
     userInfo["userJob"] = this._profileJob.textContent;
     return userInfo;
   };
-  setUserInfo = (data) => {
-    const {name, job} = data;
+  setUserInfo = ({input_name:name,input_job:job}) => {
     this._profileName.textContent = name;
     this._profileJob.textContent = job;
   };

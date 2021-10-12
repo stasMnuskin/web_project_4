@@ -83,8 +83,11 @@ const userInfo = new UserInfo({
   profileJob: '.profile__job'
 });
 
+// console.log(userInfo.getUserInfo());
+// userInfo.setUserInfo({name:"newName" , job:"NewJob"});
+
 const editFormModal = new PopupWithForm('.modal_type_edit', (data) => {
-  userInfo.setUserInfo(data);
+  userInfo.setUserInfo(editFormModal.getInputValues());
 });
 editFormModal.setEventListeners();
 
@@ -104,12 +107,15 @@ openEditButton.addEventListener('click', () => {
 });
 
 const addForm = document.forms.add;  
-const addModal = new PopupWithForm('.modal_type_add', (data) => {
-  section.addItem(generateNewCard(data));
-  console.log(data);
+const addModal = new PopupWithForm('.modal_type_add', () => {
+  const inputFields = addModal.getInputValues();
+  section.addItem(generateNewCard(inputFields));
+  console.log(generateNewCard(inputFields)); // 
 });
 addModal.setEventListeners();
  
+console.log(addModal.getInputValues());
+
 openAddButton.addEventListener('click', () =>{
   addCardFormValidator.resetValidation();
   addModal.open();
