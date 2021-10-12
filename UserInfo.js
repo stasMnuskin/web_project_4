@@ -2,7 +2,6 @@ export class UserInfo {
   constructor({profileName, profileJob}) {
     this._profileName = document.querySelector(profileName);
     this._profileJob = document.querySelector(profileJob);
-    this.setUserInfo = this.setUserInfo.bind(this);
   };
   getUserInfo() {
     const userInfo = {};
@@ -10,9 +9,9 @@ export class UserInfo {
     userInfo["userJob"] = this._profileJob.textContent;
     return userInfo;
   };
-  setUserInfo(data) {
+  setUserInfo = (data) => {
     const {name, job} = data;
-    this._profileName = name;
-    this._profileJob = job;
+    this._profileName.textContent = name;
+    this._profileJob.textContent = job;
   };
 };
