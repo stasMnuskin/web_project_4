@@ -12,6 +12,3 @@ export class PopupWithImage extends Popup {
     super.open();
   };
 };
-
-// const popupImage = new PopupWithImage('.modal_type_image');
-// popupImage.open();

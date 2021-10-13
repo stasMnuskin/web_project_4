@@ -1,53 +1,24 @@
-import { FormValidator } from './FormValidator.js';
-import { Card } from './Card.js';
-import { PopupWithForm } from "./PopupWithForm.js";
-import { PopupWithImage } from './PopupWithImage.js';
-import { UserInfo } from './UserInfo.js';
-import { Section } from './Section.js';
-
-//open buttons
-const openEditButton = document.querySelector('.profile__edit-button');
-const openAddButton = document.querySelector('.profile__add-button');
-//initial settings
-const settings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__form-input",
-  submitButtonSelector: ".modal__form-button",
-  inactiveButtonClass: "modal__form-button_disabled",
-  inputErrorClass: "modal__form-input_theme_error",
-  errorClass: "modal__error_visible"
-};
-
-//initial array of cards
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg"
-  }
-];
+import "./index.css";
+import { FormValidator } from '../components./FormValidator.js';
+import { Card } from '../components./Card.js';
+import { PopupWithForm } from "../components./PopupWithForm.js";
+import { PopupWithImage } from '../components./PopupWithImage.js';
+import { UserInfo } from '../components./UserInfo.js';
+import { Section } from '../components./Section.js';
+import { 
+  openEditButton,
+  openAddButton,
+  settings,
+  initialCards,
+  editForm,
+  nameInput,
+  jobInput,
+  addForm
+} from './utils.js';
 
 //image modal
 const imageModal = new PopupWithImage('.modal_type_image');
+
 //function that is making a card   
 function generateNewCard(data) {
   const card = new Card(
@@ -83,17 +54,12 @@ const userInfo = new UserInfo({
   profileJob: '.profile__job'
 });
 
-// console.log(userInfo.getUserInfo());
-// userInfo.setUserInfo({name:"newName" , job:"NewJob"});
-
+//setting up the edit modal
 const editFormModal = new PopupWithForm('.modal_type_edit', (data) => {
   userInfo.setUserInfo(editFormModal.getInputValues());
 });
 editFormModal.setEventListeners();
 
-const editForm = document.forms.edit;
-const nameInput = editForm.elements.input_name;
-const jobInput = editForm.elements.input_job;
 
 const editFormValidator = new FormValidator(settings, editForm);
 editFormValidator.enableValidation();
@@ -106,15 +72,12 @@ openEditButton.addEventListener('click', () => {
   jobInput.value = formInputs.userJob;
 });
 
-const addForm = document.forms.add;  
 const addModal = new PopupWithForm('.modal_type_add', () => {
   const inputFields = addModal.getInputValues();
   section.addItem(generateNewCard(inputFields));
-  console.log(generateNewCard(inputFields)); // 
 });
 addModal.setEventListeners();
  
-console.log(addModal.getInputValues());
 
 openAddButton.addEventListener('click', () =>{
   addCardFormValidator.resetValidation();

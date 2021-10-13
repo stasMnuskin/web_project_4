@@ -5,10 +5,12 @@ export class Card {
     this._selector = selector;
     this._handleCardClick = handleCardClick;
   };
+
   _getTemplate() {
     const cardTemplate = document.querySelector(this._selector).content.querySelector('.elements__card').cloneNode(true);
     return cardTemplate;
   };
+
   getCardElement = () => {
     //get the template
     this._card = this._getTemplate();
@@ -22,6 +24,7 @@ export class Card {
 
     return this._card;
   };
+  
   _handleLikeButton = evt => evt.target.classList.toggle('elements__card-button_active');
 
   _handleDeleteButton = () => this._card.remove();
