@@ -1,10 +1,10 @@
 import "./index.css";
-import { FormValidator } from '../components./FormValidator.js';
-import { Card } from '../components./Card.js';
-import { PopupWithForm } from "../components./PopupWithForm.js";
-import { PopupWithImage } from '../components./PopupWithImage.js';
-import { UserInfo } from '../components./UserInfo.js';
-import { Section } from '../components./Section.js';
+import { FormValidator } from '../components/FormValidator.js';
+import { Card } from '../components/Card.js';
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { UserInfo } from '../components/UserInfo.js';
+import { Section } from '../components/Section.js';
 import { 
   openEditButton,
   openAddButton,
@@ -14,7 +14,7 @@ import {
   nameInput,
   jobInput,
   addForm
-} from './utils.js';
+} from '../components/utils.js';
 
 //image modal
 const imageModal = new PopupWithImage('.modal_type_image');
