@@ -7,7 +7,7 @@ class FormValidator {
   _showError(input) {
     const error = input.validationMessage;
     const errorElement = this._formElement.querySelector(`#${input.id}-error`);
-    errorElement.textContent = error;
+    errorElement.textContent = error; 
   };
   
   _hideError(input) {
@@ -19,8 +19,10 @@ class FormValidator {
   _checkValidity(input) {
     if (input.validity.valid) {
       this._hideError(input);
+      input.classList.remove('modal__form-input_theme_error');
     } else {
       this._showError(input);
+      input.classList.add('modal__form-input_theme_error');
     }
   };
   
@@ -39,7 +41,7 @@ class FormValidator {
     const {submitButtonSelector, inactiveButtonClass} = this._settings;
     const button = this._formElement.querySelector(submitButtonSelector);
     const isFormValid = this._formInputs.every(input => input.validity.valid);
-    button.disabled = (!isFormValid);
+    button.disabled = !isFormValid;
     if (isFormValid) {
       //if the form is valid enable button
       button.classList.remove(inactiveButtonClass);
@@ -54,6 +56,7 @@ class FormValidator {
       this._formElement.reset();
       this._hideError(input);
     });
+    this._toggleButtonState();
   };
 
   resetButton() {

@@ -6,8 +6,8 @@ export class UserInfo {
 
   getUserInfo() {
     const userInfo = {};
-    userInfo["userName"] = this._profileName.textContent;
-    userInfo["userJob"] = this._profileJob.textContent;
+    userInfo.name = this._profileName.textContent;
+    userInfo.job = this._profileJob.textContent;
     return userInfo;
   };
   
