@@ -1,103 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Around The U.S</title>
-  <!-- <link rel="stylesheet" href="./pages/index.css"> -->
-</head>
-<body class="page">
-  <div class="page__wrapper">
-    <header class="header">
-      <img src="<%=require('./blocks/images/heade-logo.svg')%>" alt="header logo" class="header__logo">
-    </header>
-    <main class="content">
-      <section class="profile">
-        <div class="profile__image"></div>
-        <div class="profile__description">
-          <h1 class="profile__name">Jacques Cousteau</h1>
-          <button aria-label="like" type="button" class="profile__edit-button">      
-          </button>
-          <p class="profile__job">Explorer</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around The U.S</title>
+    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
+  </head>
+  <body class="page">
+    <div class="page__wrapper">
+      <header class="header">
+        <img
+          src="<%=require('./blocks/images/heade-logo.svg')%>"
+          alt="header logo"
+          class="header__logo"
+        />
+      </header>
+      <main class="content">
+        <section class="profile">
+          <div class="profile__image">
+            <button
+              aria-label="avatar"
+              type="button"
+              class="profile__image-button"
+            ></button>
+          </div>
+          <div class="profile__description">
+            <h1 class="profile__name">Jacques Cousteau</h1>
+            <button
+              aria-label="like"
+              type="button"
+              class="profile__edit-button"
+            ></button>
+            <p class="profile__job">Explorer</p>
+          </div>
+          <button
+            aria-label="like"
+            type="button"
+            class="profile__add-button"
+          ></button>
+        </section>
+        <section class="elements">
+          <ul class="elements__list"></ul>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyrights">&#169; 2021 Around The U.S</p>
+      </footer>
+
+      <div class="modal modal_type_delete-card">
+        <div class="modal__container">
+          <button
+            aria-label="close"
+            type="button"
+            class="modal__close-button"
+          ></button>
+          <form name="delete" action="#" class="modal__form">
+            <h2 class="modal__title">Are You Sure?</h2>
+            <button type="submit" class="modal__form-button">Yes</button>
+          </form>
         </div>
-        <button aria-label="like" type="button" class="profile__add-button">
-        </button>  
-      </section>
-      <section class="elements">
-        <ul class="elements__list"></ul>  
-      </section>
-    </main>
-    <footer class="footer">
-      <p class="footer__copyrights">
-        &#169; 2021 Around The U.S
-      </p>
-    </footer>
-    <div class="modal modal_type_edit">
-      <div class="modal__container">
-        <button aria-label="close" type="button" class="modal__close-button">
-        </button>
-        <form name="edit" action="#" class="modal__form">
-          <h2 class="modal__title">Edit profile</h2>
-          <input id="name-input" name="input_name" type="text"
-          class="modal__form-input modal__form-input_mod_name"
-          placeholder="Name" 
-          value="Name" required minlength="2" maxlength="40"/>
-          <span class="modal__input-error" id="name-input-error"></span>
-          <input id="job-input" name="input_job" type="text"
-          class="modal__form-input modal__form-input_mod_job" 
-          placeholder="Job" 
-          value="job" required minlength="2" maxlength="200"/>
-          <span id="job-input-error" class="modal__input-error"></span>
-          <button type='submit' class="modal__form-button">
-            Save
-          </button>
-        </form>
+      </div>
+
+      <div class="modal modal_type_avatar">
+        <div class="modal__container">
+          <button
+            aria-label="close"
+            type="button"
+            class="modal__close-button"
+          ></button>
+          <form name="avatar" action="#" class="modal__form">
+            <h2 class="modal__title">Change profile picture</h2>
+            <input
+              id="avatar-input"
+              name="link"
+              type="url"
+              class="modal__form-input modal__form-input_mod_avatar"
+              placeholder="Avatar link"
+              required
+            />
+            <span id="avatar-input-error" class="modal__input-error"></span>
+            <button type="submit" class="modal__form-button">Save</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal modal_type_edit">
+        <div class="modal__container">
+          <button
+            aria-label="close"
+            type="button"
+            class="modal__close-button"
+          ></button>
+          <form name="edit" action="#" class="modal__form">
+            <h2 class="modal__title">Edit profile</h2>
+            <input
+              id="name-input"
+              name="input_name"
+              type="text"
+              class="modal__form-input modal__form-input_mod_name"
+              placeholder="Name"
+              value="Name"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span class="modal__input-error" id="name-input-error"></span>
+            <input
+              id="job-input"
+              name="input_job"
+              type="text"
+              class="modal__form-input modal__form-input_mod_job"
+              placeholder="Job"
+              value="job"
+              required
+              minlength="2"
+              maxlength="200"
+            />
+            <span id="job-input-error" class="modal__input-error"></span>
+            <button type="submit" class="modal__form-button">Save</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal modal_type_add">
+        <div class="modal__container">
+          <button
+            aria-label="close"
+            type="button"
+            class="modal__close-button"
+          ></button>
+          <form name="add" action="#" class="modal__form">
+            <h2 class="modal__title">New Place</h2>
+            <input
+              id="title-input"
+              name="name"
+              type="text"
+              class="modal__form-input modal__form-input_mod_title"
+              placeholder="Title"
+              required
+              minlength="1"
+              maxlength="30"
+            />
+            <span id="title-input-error" class="modal__input-error"> </span>
+            <input
+              id="link-input"
+              name="link"
+              type="url"
+              class="modal__form-input modal__form-input_mod_image"
+              placeholder="Image link"
+              required
+            />
+            <span id="link-input-error" class="modal__input-error"></span>
+            <button type="submit" class="modal__form-button">Create</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal modal_type_image">
+        <div class="modal__container modal__container_type_image">
+          <button
+            aria-label="close"
+            type="button"
+            class="modal__close-button"
+          ></button>
+          <figure class="modal__figure">
+            <img class="modal__image" src="#" alt="#" />
+            <figcaption class="modal__caption"></figcaption>
+          </figure>
+        </div>
       </div>
     </div>
-    <div class="modal modal_type_add">
-      <div class="modal__container">
-        <button aria-label="close" type="button" class="modal__close-button">
-        </button>
-        <form name="add" action="#" class="modal__form">
-          <h2 class="modal__title">New Place</h2>
-          <input id="title-input" name="name" type="text"
-          class="modal__form-input modal__form-input_mod_title"
-          placeholder="Title" 
-          required minlength="1" maxlength="30"/>
-          <span id="title-input-error" class="modal__input-error">
-          </span>
-          <input id="link-input" name="link" type="url"
-          class="modal__form-input modal__form-input_mod_image" 
-          placeholder="Image link" required/>
-          <span id="link-input-error" class="modal__input-error"></span>
-          <button type='submit' class="modal__form-button">
-            Create
-          </button>
-        </form>
-      </div>
-    </div>
-    <div class="modal modal_type_image">
-      <div class="modal__container modal__container_type_image">
-        <button aria-label="close" type="button" class="modal__close-button">
-        </button>
-        <figure class="modal__figure">
-          <img class="modal__image" src="#" alt="#">
-          <figcaption class="modal__caption"></figcaption>
-        </figure>
-      </div>
-    </div>
-  </div>
-  <template class="card-template">
-    <li class="elements__card">
-      <button aria-label="delete" type="button" class="elements__card-delete"></button>
-      <img src="#" alt="#" class="elements__card-image">
-      <div class="elements__card-info">
-        <h2 class="elements__card-title"></h2>
-        <button aria-label="like" type="button" class="elements__card-button"></button>
-      </div>   
-    </li>
-  </template>
-  <!-- <script type="module" src="index.js"></script> -->
-</body>
+    <template class="card-template">
+      <li class="elements__card">
+        <button
+          aria-label="delete"
+          type="button"
+          class="elements__card-delete"
+        ></button>
+        <img src="#" alt="#" class="elements__card-image" />
+        <div class="elements__card-info">
+          <h2 class="elements__card-title"></h2>
+          <div class="elements__card-like-counter">
+            <button
+              aria-label="like"
+              type="button"
+              class="elements__card-button"
+            ></button>
+            <span class="elements__card-likes"></span>
+          </div>
+        </div>
+      </li>
+    </template>
+    <!-- <script type="module" src="index.js"></script> -->
+  </body>
 </html>

@@ -37,3 +37,6 @@
 @import url(../blocks/modal/__form-input/_theme/_error/modal__form-input_theme_error.css);
 @import url(../blocks/modal/__form-button/_disabled/modal__form-button_disabled.css);
 @import url(../blocks/modal/__input-error/modal__input-error.css);
+@import url(../blocks/elemets/__card-likes/elements__card-likes.css);
+@import url(../blocks/elemets/__card-like-counter/elements__card-like-counter.css);
+@import url(../blocks/profile/__image-button/profile__image-button.css);

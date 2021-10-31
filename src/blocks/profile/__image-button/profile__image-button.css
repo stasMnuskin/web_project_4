@@ -1,0 +1,19 @@
+.profile__image-button {
+  visibility: hidden;
+  z-index: 1;
+  background-color: transparent;
+  background-image: url(../../images/change-avatar.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  padding: 0;
+}
+
+.profile__image-button:hover {
+  cursor: pointer;
+  opacity: .5;
+  transition: ease .5s;
+}

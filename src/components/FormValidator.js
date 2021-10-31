@@ -7,12 +7,17 @@ class FormValidator {
   _showError(input) {
     const error = input.validationMessage;
     const errorElement = this._formElement.querySelector(`#${input.id}-error`);
+    // console.log("error = ", error);
+    // console.log("errorElement = ", errorElement);
+
     errorElement.textContent = error;
     input.classList.add(this._settings.inputErrorClass);
   }
 
   _hideError(input) {
+    // console.log("`${input.id}-error` = ", `${input.id}-error`);
     const errorElement = this._formElement.querySelector(`#${input.id}-error`);
+    // console.log("errorElement = ", errorElement);
     errorElement.textContent = "";
     input.classList.remove(this._settings.inputErrorClass);
   }
