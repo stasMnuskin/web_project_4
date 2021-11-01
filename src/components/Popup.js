@@ -1,7 +1,7 @@
 export class Popup {
   constructor(popupSelector) {
     this._popupElement = document.querySelector(popupSelector);
-    this._form = this._popupElement.querySelector(".modal__form");
+    this._handleEscClose = this._handleEscClose.bind(this);
   }
   //close with "esc"
   _handleEscClose(evt) {
@@ -19,14 +19,7 @@ export class Popup {
     this._popupElement.classList.remove("modal_open");
     document.removeEventListener("keyup", this._handleEscClose);
   }
-  changeButtonText(isUploading) {
-    const saveButton = this._form.querySelector(".modal__form-button");
-    if (isUploading) {
-      saveButton.textContent = "Saving...";
-    } else {
-      saveButton.textContent = "Save";
-    }
-  }
+
   setEventListeners() {
     this._popupElement
       .querySelector(".modal__close-button")

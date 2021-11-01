@@ -48,10 +48,9 @@ export class Card {
     }
 
     //setting the number of likes
-    this._card.querySelector(
-      ".elements__card-likes"
-    ).textContent = this._likes.length;
-    
+    this._card.querySelector(".elements__card-likes").textContent =
+      this._likes.length;
+
     //if true: setting the
     if (this.isLiked()) {
       this.likeCard(this._likes);
@@ -75,7 +74,7 @@ export class Card {
 
   removeCard() {
     this._card.remove();
-    this._card = null;
+    // this._card = null;
   }
 
   _addEventListeners() {
@@ -88,8 +87,8 @@ export class Card {
       this._handleLike(this._id)
     );
     //opening the image modal
-    this._cardImage.addEventListener("click", (evt) => {
-      () => this._handleCardClick(evt);
-    });
+    this._cardImage.addEventListener("click", (evt) =>
+      this._handleCardClick(evt)
+    );
   }
 }

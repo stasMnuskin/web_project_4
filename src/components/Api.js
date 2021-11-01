@@ -1,4 +1,4 @@
-const costumeFetch = (url, headers) => {
+const customFetch = (url, headers) => {
   return fetch(url, headers).then((result) => {
     if (result.ok) {
       return result.json();
@@ -13,52 +13,52 @@ class Api {
     this._headers = headers;
   }
   getInitialCards() {
-    return costumeFetch(`${this._baseUrl}/cards`, {
+    return customFetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
     });
   }
   getUserInfo() {
-    return costumeFetch(`${this._baseUrl}/users/me`, {
+    return customFetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
     });
   }
   createCard(data) {
-    return costumeFetch(`${this._baseUrl}/cards`, {
+    return customFetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({ name: data.name, link: data.link }),
     });
   }
   updateProfile(data) {
-    return costumeFetch(`${this._baseUrl}/users/me`, {
+    return customFetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({ name: data.input_name, about: data.input_job }),
     });
   }
   deleteCard(cardId) {
-    return costumeFetch(`${this._baseUrl}/cards/${cardId}`, {
+    return customFetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
     });
   }
   likeCard(cardId) {
-    return costumeFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+    return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "PUT",
       headers: this._headers,
     });
   }
   deleteLike(cardId) {
-    return costumeFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+    return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
     });
   }
   changeAvatar(avatar) {
-    return costumeFetch(`${this._baseUrl}/users/me/avatar`, {
+    return customFetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({ avatar: avatar.link })
+      body: JSON.stringify({ avatar: avatar.link }),
     });
   }
 }
