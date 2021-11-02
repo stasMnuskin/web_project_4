@@ -119,14 +119,14 @@ const avatarFormModal = new PopupWithForm(".modal_type_avatar", () => {
     .then((result) => {
       userInfo.changeAvatar(result.avatar);
     })
-    .then(() => avatarFormModal.close())
+    .then(() => {
+      avatarFormModal.close();
+    })
     .catch((error) => {
       console.log(error);
     })
-    // .finally(avatarFormModal.changeButtonText(false));
     .finally(() => {
       avatarFormModal.changeButtonText(false);
-      avatarFormModal.close();
     });
 });
 
@@ -145,7 +145,7 @@ const editFormModal = new PopupWithForm(".modal_type_edit", () => {
     .catch((error) => {
       console.log(error);
     })
-    .finally(editFormModal.changeButtonText(false));
+    .finally(() => editFormModal.changeButtonText(false));
 });
 editFormModal.setEventListeners();
 
@@ -162,7 +162,7 @@ const addModal = new PopupWithForm(".modal_type_add", () => {
     .catch((error) => {
       console.log(error);
     })
-    .finally(addModal.changeButtonText(false));
+    .finally(() => editFormModal.changeButtonText(false));
 });
 addModal.setEventListeners();
 
